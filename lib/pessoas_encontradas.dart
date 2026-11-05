@@ -1,8 +1,21 @@
 import 'package:flutter/material.dart';
+import 'avatar_pessoa.dart';
 import 'botao_acao.dart';
+import 'pessoa.dart';
 
 // Título da seção com o Filtrar à direita e a linha de avatares
 class PessoasEncontradas extends StatelessWidget {
+  final List<Pessoa> pessoas = [
+    Pessoa('Ana', 'Recife, Brasil',
+        'Adora viajar de mochila e já conheceu mais de 15 países. Gosta de museus, trilhas e comida local.'),
+    Pessoa('Bruno', 'João Pessoa, Brasil',
+        'Fotógrafo amador que viaja atrás de paisagens. Está planejando uma viagem pela Europa.'),
+    Pessoa('Carla', 'Lisboa, Portugal',
+        'Guia turística nas horas vagas. Conhece bem a história de Roma e já visitou o Coliseu três vezes.'),
+    Pessoa('Lucas', 'São Paulo, Brasil',
+        'Viaja a trabalho e aproveita os dias livres para explorar a cidade. Curte viagens de curta duração.'),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -25,26 +38,7 @@ class PessoasEncontradas extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            CircleAvatar(
-              radius: 25,
-              backgroundColor: Colors.grey[300],
-              child: Icon(Icons.person, color: Colors.grey),
-            ),
-            CircleAvatar(
-              radius: 25,
-              backgroundColor: Colors.grey[300],
-              child: Icon(Icons.person, color: Colors.grey),
-            ),
-            CircleAvatar(
-              radius: 25,
-              backgroundColor: Colors.grey[300],
-              child: Icon(Icons.person, color: Colors.grey),
-            ),
-            CircleAvatar(
-              radius: 25,
-              backgroundColor: Colors.grey[300],
-              child: Icon(Icons.person, color: Colors.grey),
-            ),
+            for (var p in pessoas) AvatarPessoa(p),
           ],
         ),
       ],
